@@ -1,51 +1,33 @@
-import { Link } from "react-router-dom";
-
 const FriendCard = ({ friend }) => {
-  // স্ট্যাটাস অনুযায়ী কালার সেট করা
-  const statusColors = {
-    "on-track": "bg-green-100 text-green-700 border-green-500",
-    "almost due": "bg-yellow-100 text-yellow-700 border-yellow-500",
-    overdue: "bg-red-100 text-red-700 border-red-500",
+  const statusStyles = {
+    "on-track": "bg-[#2D4A3E] text-white", 
+    "almost due": "bg-[#FBBF24] text-white", 
+    "overdue": "bg-[#EF4444] text-white", 
   };
 
   return (
-    <Link
-      to={`/friend/${friend.id}`}
-      className="block transform hover:scale-105 transition duration-300"
-    >
-      <div
-        className={`border-l-4 p-5 bg-white shadow-lg rounded-xl ${statusColors[friend.status]}`}
-      >
-        <img
-          src={friend.picture}
-          alt={friend.name}
-          className="w-20 h-20 rounded-full mx-auto mb-4 object-cover border-2 border-gray-200"
-        />
-        <h3 className="text-center font-bold text-gray-800 text-xl">
-          {friend.name}
-        </h3>
-        <p className="text-center text-gray-500 text-sm mb-3">
-          Last contact: {friend.days_since_contact} days ago
-        </p>
-
-        <div className="flex flex-wrap justify-center gap-2 mb-3">
-          {friend.tags.map((tag) => (
-            <span
-              key={tag}
-              className="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600"
-            >
-              #{tag}
-            </span>
-          ))}
-        </div>
-
-        <div
-          className={`text-center py-1 rounded-full text-xs font-bold uppercase tracking-wider ${statusColors[friend.status]}`}
-        >
-          {friend.status}
-        </div>
+    <div className="bg-white p-8 rounded-xl shadow-[0_4px_25px_rgba(0,0,0,0.03)] border border-gray-50 flex flex-col items-center text-center">
+      {/* Profile Pic */}
+      <img src={friend.picture} alt={friend.name} className="w-16 h-16 rounded-full mb-4 object-cover border border-gray-100" />
+      
+      {/* Name and Days */}
+      <h3 className="text-[#111827] font-bold text-lg mb-0.5">{friend.name}</h3>
+      <p className="text-gray-400 text-[10px] mb-4 uppercase tracking-tighter">{friend.days_since_contact}d ago</p>
+      
+      {/* Tags */}
+      <div className="flex gap-2 mb-5">
+        {friend.tags.map(tag => (
+          <span key={tag} className="bg-[#DCFCE7] text-[#166534] px-3 py-0.5 rounded text-[9px] font-black uppercase tracking-widest">
+            {tag}
+          </span>
+        ))}
       </div>
-    </Link>
+      
+      {/* Status Badge */}
+      <div className={`px-5 py-1 rounded-full text-[9px] font-black uppercase tracking-widest ${statusStyles[friend.status]}`}>
+        {friend.status}
+      </div>
+    </div>
   );
 };
 
