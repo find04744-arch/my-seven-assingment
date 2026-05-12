@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Plus } from "lucide-react";
+import { Link } from "react-router-dom"; // ১. Link ইমপোর্ট করা হয়েছে
 import FriendCard from "../components/FriendCard";
 
 const Home = () => {
@@ -59,7 +60,10 @@ const Home = () => {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {friends.map(friend => (
-              <FriendCard key={friend.id} friend={friend} />
+              /* ২. প্রতিটি কার্ডকে Link দিয়ে র‍্যাপ করা হয়েছে */
+              <Link to={`/friend/${friend.id}`} key={friend.id} className="block transition-transform hover:scale-[1.02]">
+                <FriendCard friend={friend} />
+              </Link>
             ))}
           </div>
         )}
