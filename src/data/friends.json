@@ -2,37 +2,37 @@
   {
     "id": 1,
     "name": "Mahmudul Hasan Mahfuz",
-    "picture": "https://i.ibb.co/L8N7pFC/user1.jpg",
-    "email": "mafuz@cse.com",
+    "picture": "https://randomuser.me/api/portraits/men/1.jpg",
+    "email": "mahfuz@cse.com",
     "days_since_contact": 2,
     "status": "on-track",
     "tags": ["university", "coding"],
     "bio": "CSE student at University of Scholars. Passionate about Cybersecurity.",
     "goal": 7,
-    "next_due_date": "2026-05-15"
+    "next_due_date": "2026-05-20"
   },
   {
     "id": 2,
     "name": "Sarah Ahmed",
-    "picture": "https://i.ibb.co/5GzX99q/user2.jpg",
+    "picture": "https://randomuser.me/api/portraits/women/2.jpg",
     "email": "sarah@friends.com",
     "days_since_contact": 12,
     "status": "almost due",
     "tags": ["college", "hiking"],
     "bio": "Old friend from college. We love hiking and photography.",
     "goal": 14,
-    "next_due_date": "2026-05-20"
+    "next_due_date": "2026-05-25"
   },
   {
     "id": 3,
     "name": "Tanvir Ishrak",
-    "picture": "https://i.ibb.co/vY08Y9N/user3.jpg",
+    "picture": "https://randomuser.me/api/portraits/men/3.jpg",
     "email": "tanvir@work.com",
     "days_since_contact": 25,
     "status": "overdue",
     "tags": ["work", "office"],
-    "bio": "Colleague at KID'S ENERGY. Great mentor for English grammar.",
+    "bio": "Colleague at KID'S ENERGY. Professional English evaluator.",
     "goal": 15,
-    "next_due_date": "2026-05-01"
+    "next_due_date": "2026-05-10"
   }
 ]

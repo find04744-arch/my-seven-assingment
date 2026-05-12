@@ -1,9 +1,7 @@
-const Footer = () => {
-  return (
-    <footer className="bg-gray-800 text-white p-6 mt-10 text-center">
-      <p>© 2026 KeenKeeper - Your Friendship Tracker</p>
-    </footer>
-  );
-};
-
+const Footer = () => (
+  <footer className="bg-white border-t py-10 text-center">
+    <div className="text-gray-800 font-bold text-lg mb-2">KeenKeeper</div>
+    <p className="text-gray-500 text-sm">© 2026 KeenKeeper - Helping you maintain meaningful relationships.</p>
+  </footer>
+);
 export default Footer;

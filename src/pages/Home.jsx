@@ -1,43 +1,63 @@
 import { useEffect, useState } from "react";
+import { UserPlus, Clock, CheckCircle, AlertCircle } from "lucide-react";
 import FriendCard from "../components/FriendCard";
-import { UserPlus } from "lucide-react";
 
 const Home = () => {
   const [friends, setFriends] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // JSON ডাটা সিমুলেশন (লোডিং দেখানোর জন্য ১ সেকেন্ড দেরি করা হয়েছে)
     fetch("/src/data/friends.json")
       .then(res => res.json())
       .then(data => {
         setFriends(data);
-        setLoading(false);
+        setTimeout(() => setLoading(false), 800); // loading animation simulation
       });
   }, []);
 
   return (
-    <div className="bg-gray-50 min-h-screen pb-20">
-      {/* Banner Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20 px-5 text-center">
-        <h1 className="text-4xl md:text-6xl font-black mb-4 tracking-tight">Stay Connected, Stay Close</h1>
-        <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">Track your friendships and never let the bond fade away. Get notified when it's time to reach out.</p>
-        <button className="bg-white text-blue-700 px-8 py-3 rounded-full font-bold flex items-center gap-2 mx-auto hover:bg-blue-50 transition shadow-lg">
+    <div className="bg-gray-50 min-h-screen">
+      {/* 🎯 Banner Section */}
+      <section className="bg-white py-20 px-5 text-center border-b">
+        <h1 className="text-5xl font-black text-gray-900 mb-4">Stay Connected, Stay Close</h1>
+        <p className="text-gray-500 text-xl max-w-2xl mx-auto mb-8">
+          Track your relationships and never let the bond fade away. 
+          Get notified when it's time to reach out.
+        </p>
+        <button className="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold flex items-center gap-2 mx-auto hover:bg-blue-700 transition shadow-lg shadow-blue-200">
           <UserPlus size={20} /> Add a Friend
         </button>
       </section>
 
-      {/* Friends Section */}
-      <div className="max-w-7xl mx-auto px-5 mt-16">
-        <h2 className="text-3xl font-extrabold text-gray-800 mb-8 border-b-2 border-blue-500 inline-block pb-2">Your Friends</h2>
-        
+      {/* 📋 Summary Cards */}
+      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 px-10 -mt-8">
+        <div className="bg-white p-6 rounded-2xl shadow-sm border flex flex-col items-center">
+          <span className="text-gray-400 text-sm font-semibold">Total Friends</span>
+          <span className="text-3xl font-bold text-gray-800">{friends.length}</span>
+        </div>
+        <div className="bg-white p-6 rounded-2xl shadow-sm border flex flex-col items-center">
+          <span className="text-green-500 text-sm font-semibold">On Track</span>
+          <span className="text-3xl font-bold text-gray-800">1</span>
+        </div>
+        <div className="bg-white p-6 rounded-2xl shadow-sm border flex flex-col items-center">
+          <span className="text-red-500 text-sm font-semibold">Overdue</span>
+          <span className="text-3xl font-bold text-gray-800">1</span>
+        </div>
+        <div className="bg-white p-6 rounded-2xl shadow-sm border flex flex-col items-center">
+          <span className="text-blue-500 text-sm font-semibold">Goals Met</span>
+          <span className="text-3xl font-bold text-gray-800">85%</span>
+        </div>
+      </div>
+
+      {/* 👫 Your Friends Section */}
+      <div className="max-w-7xl mx-auto px-10 py-16">
+        <h2 className="text-2xl font-bold text-gray-800 mb-10">Your Friends</h2>
         {loading ? (
-          /* Loading Animation (Requirement 10.2) */
-          <div className="flex justify-center items-center h-40">
-            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500"></div>
+          <div className="flex justify-center py-20">
+             <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {friends.map(friend => (
               <FriendCard key={friend.id} friend={friend} />
             ))}
@@ -47,5 +67,4 @@ const Home = () => {
     </div>
   );
 };
-
 export default Home;
