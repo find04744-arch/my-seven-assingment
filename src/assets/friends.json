@@ -1,14 +1,26 @@
 [
   {
     "id": 1,
-    "name": "Mahmudul Hasan",
-    "picture": "https://example.com/photo.jpg",
-    "email": "mahmudul@example.com",
+    "name": "Sarah Ahmed",
+    "picture": "https://i.ibb.co/pic1.jpg",
+    "email": "sarah@example.com",
     "days_since_contact": 5,
     "status": "on-track",
-    "tags": ["university", "coding"],
-    "bio": "CSE student at University of Scholars.",
+    "tags": ["College", "Close Friend"],
+    "bio": "Met in university. Loves discussing tech projects.",
     "goal": 7,
-    "next_due_date": "2026-05-20"
+    "next_due_date": "2026-05-18"
+  },
+  {
+    "id": 2,
+    "name": "Tanvir Hasan",
+    "picture": "https://i.ibb.co/pic2.jpg",
+    "email": "tanvir@example.com",
+    "days_since_contact": 15,
+    "status": "overdue",
+    "tags": ["Work", "Colleague"],
+    "bio": "Web development partner and a great mentor.",
+    "goal": 10,
+    "next_due_date": "2026-05-10"
   }
 ]
