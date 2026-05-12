@@ -2,19 +2,19 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 const FriendDetails = () => {
-  const { id } = useParams(); // ইউআরএল থেকে আইডি পাওয়ার জন্য (ভবিষ্যতে কাজে লাগবে)
+  const { id } = useParams(); 
 
   return (
     <div className="bg-slate-50 min-h-screen py-12 px-10">
       <div className="max-w-6xl mx-auto">
         
-        {/* ব্যাক বাটন */}
+        
         <Link to="/" className="inline-block mb-6 text-[#2D4A3E] font-bold hover:underline">
           ← Back to Home
         </Link>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-          {/* বাম দিকের কলাম: প্রোফাইল কার্ড ও অ্যাকশন */}
+          
           <div className="md:col-span-4 space-y-4">
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col items-center">
               <img 
@@ -44,7 +44,7 @@ const FriendDetails = () => {
             </div>
           </div>
 
-          {/* ডান দিকের কলাম: স্ট্যাটস ও কুইক চেক-ইন */}
+          
           <div className="md:col-span-8 space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm text-center">
