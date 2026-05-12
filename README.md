@@ -1,16 +1,70 @@
-# React + Vite
+KeenKeeper - Friendship Tracker
+KeenKeeper is a modern web application designed to help users maintain and nurture their personal relationships. In a busy world, it’s easy to lose track of when you last spoke to a friend. KeenKeeper ensures you stay connected by tracking interactions and setting relationship goals.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🛠️ Technologies Used
+Framework: React.js (Vite)
 
-Currently, two official plugins are available:
+Routing: React Router DOM
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Styling: Tailwind CSS
 
-## React Compiler
+Icons: Lucide-React
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Charts: Recharts (for Friendship Analytics)
 
-## Expanding the ESLint configuration
+Data Handling: JSON for local data storage
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🚀 Key Features
+1. Smart Relationship Dashboard
+The Home page displays all your friends in a responsive grid layout. Each friend card dynamically changes its border color based on their contact status:
+
+On-Track: You’ve communicated recently.
+
+Almost Due: It’s time to reach out soon.
+
+Overdue: You have missed your contact goal.
+
+2. Interactive Timeline & Logging
+Never forget a conversation again. Users can log "Quick Check-ins" (Call, Text, or Video) directly from a friend's detail page. These interactions are automatically saved to a centralized Timeline page, allowing you to filter and review your communication history.
+
+3. Friendship Analytics (Stats)
+Visualise your social habits with a professional Pie Chart. The Stats page breaks down your interaction types, showing you whether you prefer calling, texting, or video chatting with your circle.
+
+📋 Installation & Setup
+Clone the repository:
+
+Bash
+git clone https://github.com/my-username/keen-keeper.git
+Navigate to the project folder:
+
+Bash
+cd keen-keeper
+Install dependencies:
+
+Bash
+    npm install
+
+4.  **Run the application locally:**
+    npm run dev
+    
+
+## Responsive Design
+The application is fully responsive and optimized for:
+*   **Desktop:** 4-column grid layout.
+*   **Tablet:** 2-column grid layout.
+*   **Mobile:** 1-column stacked layout.
+
+---
+
+## Author
+**Mahmudul Hasan Mahfuz**  
+*Computer Science & Engineering Student*
+
+---
+
+### **Don't forget to commit this file!**
+Run these commands in your terminal to save the README to your GitHub:
+```bash
+git add README.md
+git commit -m "docs: add comprehensive README with features and tech stack"
+git push origin main
