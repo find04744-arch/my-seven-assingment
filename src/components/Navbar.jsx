@@ -1,33 +1,24 @@
 import { NavLink } from "react-router-dom";
-import { Home, History, BarChart3 } from "lucide-react"; // আইকন ব্যবহারের জন্য
-import logo from "../assets/logo.png";
+import { Home, History, BarChart3 } from "lucide-react";
+// আপনার কাছে থাকা লোগোর সঠিক নাম দিন, যেমন logo-xl.png
+import logo from "../assets/logo-xl.png"; 
 
 const Navbar = () => {
-  const links = [
-    { name: "Home", path: "/", icon: <Home size={20} /> },
-    { name: "Timeline", path: "/timeline", icon: <History size={20} /> },
-    { name: "Stats", path: "/stats", icon: <BarChart3 size={20} /> },
-  ];
-
   return (
-    <nav className="flex justify-between items-center p-5 bg-white shadow-md px-10">
-      <div className="logo">
-        <img src={logo} alt="KeenKeeper Logo" className="h-10" />
+    <nav className="flex justify-between items-center p-5 bg-white shadow-md px-10 w-full">
+      <div className="flex items-center">
+        <img src={logo} alt="Logo" className="h-10 w-auto" />
       </div>
-      <div className="flex gap-8">
-        {links.map((link) => (
-          <NavLink
-            key={link.name}
-            to={link.path}
-            className={({ isActive }) =>
-              `flex items-center gap-2 font-medium ${
-                isActive ? "text-blue-600 underline" : "text-gray-600"
-              }`
-            }
-          >
-            {link.icon} {link.name}
-          </NavLink>
-        ))}
+      <div className="flex gap-8 items-center">
+        <NavLink to="/" className={({ isActive }) => `flex items-center gap-1 ${isActive ? "text-blue-600 font-bold" : "text-gray-600"}`}>
+          <Home size={18} /> Home
+        </NavLink>
+        <NavLink to="/timeline" className={({ isActive }) => `flex items-center gap-1 ${isActive ? "text-blue-600 font-bold" : "text-gray-600"}`}>
+          <History size={18} /> Timeline
+        </NavLink>
+        <NavLink to="/stats" className={({ isActive }) => `flex items-center gap-1 ${isActive ? "text-blue-600 font-bold" : "text-gray-600"}`}>
+          <BarChart3 size={18} /> Stats
+        </NavLink>
       </div>
     </nav>
   );
