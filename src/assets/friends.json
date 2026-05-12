@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Mahmudul Hasan",
+    "picture": "https://example.com/photo.jpg",
+    "email": "mahmudul@example.com",
+    "days_since_contact": 5,
+    "status": "on-track",
+    "tags": ["university", "coding"],
+    "bio": "CSE student at University of Scholars.",
+    "goal": 7,
+    "next_due_date": "2026-05-20"
+  }
+]
