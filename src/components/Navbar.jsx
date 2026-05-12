@@ -1,22 +1,49 @@
 import { NavLink } from "react-router-dom";
-import { Home, History, BarChart3 } from "lucide-react";
+import { Home, Clock, BarChart3 } from "lucide-react";
 
 const Navbar = () => {
-  const linkStyle = ({ isActive }) => 
-    `flex items-center gap-2 px-4 py-2 rounded-lg transition ${isActive ? "bg-blue-100 text-blue-700 font-bold" : "text-gray-600 hover:bg-gray-100"}`;
+  // Figma ডিজাইন অনুযায়ী কালার কোড এবং স্টাইল
+  const activeStyle = "bg-[#2D4A3E] text-white px-4 py-2 rounded-md flex items-center gap-2 font-medium transition-all";
+  const normalStyle = "text-[#4B5563] hover:text-[#2D4A3E] px-4 py-2 flex items-center gap-2 font-medium transition-all";
 
   return (
-    <nav className="flex justify-between items-center p-5 bg-white shadow-sm border-b sticky top-0 z-50 px-10">
-      <div className="flex items-center gap-2">
-        <div className="bg-blue-600 p-2 rounded-lg text-white font-black text-xl">K</div>
-        <span className="text-xl font-bold tracking-tight text-gray-800">KeenKeeper</span>
+    <nav className="flex justify-between items-center py-4 px-12 bg-white border-b border-gray-100 sticky top-0 z-50">
+      {/* বাম পাশে লোগো (KeenKeeper) */}
+      <div className="flex items-center">
+        <h1 className="text-2xl font-bold tracking-tight">
+          <span className="text-[#111827]">Keen</span>
+          <span className="text-[#2D4A3E]">Keeper</span>
+        </h1>
       </div>
-      <div className="flex gap-4">
-        <NavLink to="/" className={linkStyle}><Home size={18}/> Home</NavLink>
-        <NavLink to="/timeline" className={linkStyle}><History size={18}/> Timeline</NavLink>
-        <NavLink to="/stats" className={linkStyle}><BarChart3 size={18}/> Stats</NavLink>
+
+      {/* ডান পাশে নেভিগেশন লিঙ্কসমূহ */}
+      <div className="flex items-center gap-6">
+        <NavLink 
+          to="/" 
+          className={({ isActive }) => (isActive ? activeStyle : normalStyle)}
+        >
+          <Home size={20} />
+          <span>Home</span>
+        </NavLink>
+
+        <NavLink 
+          to="/timeline" 
+          className={({ isActive }) => (isActive ? activeStyle : normalStyle)}
+        >
+          <Clock size={20} />
+          <span>Timeline</span>
+        </NavLink>
+
+        <NavLink 
+          to="/stats" 
+          className={({ isActive }) => (isActive ? activeStyle : normalStyle)}
+        >
+          <BarChart3 size={20} />
+          <span>Stats</span>
+        </NavLink>
       </div>
     </nav>
   );
 };
+
 export default Navbar;
