@@ -1,20 +1,17 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Plus } from "lucide-react";
 import { Link } from "react-router-dom"; 
 import FriendCard from "../components/FriendCard";
 
-const Home = () => {
-  const [friends, setFriends] = useState([]);
-  const [loading, setLoading] = useState(true);
+/** 
+ * আপনার image_39643f.png অনুযায়ী ফাইলটি src/data/friends.json এ আছে।
+ * তাই আমরা সরাসরি এখান থেকে ইমপোর্ট করছি।
+ */
+import friendsData from "../data/friends.json"; 
 
-  useEffect(() => {
-    fetch("/src/data/friends.json")
-      .then(res => res.json())
-      .then(data => {
-        setFriends(data);
-        setLoading(false);
-      });
-  }, []);
+const Home = () => {
+  // সরাসরি ইমপোর্ট করা ডাটা স্টেটে রাখা হলো
+  const [friends] = useState(friendsData);
 
   const stats = [
     { label: "Total Friends", value: 10 },
@@ -34,14 +31,13 @@ const Home = () => {
           Your personal shelf of meaningful connections. Browse, tend, and nurture the relationships that matter most.
         </p>
         
-        {/* Dark Green Add Button */}
         <button className="bg-[#2D4A3E] text-white px-5 py-2.5 rounded-md font-bold text-sm flex items-center gap-2 mx-auto hover:opacity-90 transition">
           <Plus size={16} strokeWidth={3} />
           Add a Friend
         </button>
       </div>
 
-      {/* 4 Summary Cards Section */}
+      {/* Summary Stats */}
       <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6 px-10 mb-24">
         {stats.map((stat, i) => (
           <div key={i} className="bg-white p-10 rounded-xl shadow-[0_2px_15px_rgba(0,0,0,0.02)] border border-gray-50 text-center">
@@ -51,22 +47,27 @@ const Home = () => {
         ))}
       </div>
 
-      {/* Friends Grid Section */}
+      {/* Friends List */}
       <div className="max-w-6xl mx-auto px-10 pb-32">
         <h2 className="text-xl font-black text-[#111827] mb-10">Your Friends</h2>
         
-        {loading ? (
-          <div className="text-center py-20 font-bold text-gray-400">Loading...</div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {friends.map(friend => (
-             
-              <Link to={`/friend/${friend.id}`} key={friend.id} className="block transition-transform hover:scale-[1.02]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {friends && friends.length > 0 ? (
+            friends.map((friend) => (
+              <Link 
+                to={`/friend/${friend.id}`} 
+                key={friend.id} 
+                className="block transition-transform hover:scale-[1.02]"
+              >
                 <FriendCard friend={friend} />
               </Link>
-            ))}
-          </div>
-        )}
+            ))
+          ) : (
+            <div className="col-span-full text-center py-10 text-gray-500">
+              কোনো বন্ধু খুঁজে পাওয়া যায়নি।
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

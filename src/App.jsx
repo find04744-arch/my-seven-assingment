@@ -5,11 +5,10 @@ import Home from "./pages/Home";
 import Timeline from "./pages/Timeline";
 import Stats from "./pages/Stats";
 import FriendDetails from "./pages/FriendDetails";
-import NotFound from "./pages/NotFound";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/my-seven-assingment">
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-grow">
@@ -18,7 +17,6 @@ function App() {
             <Route path="/timeline" element={<Timeline />} />
             <Route path="/stats" element={<Stats />} />
             <Route path="/friend/:id" element={<FriendDetails />} />
-            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />
